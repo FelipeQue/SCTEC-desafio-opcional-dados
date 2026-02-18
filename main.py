@@ -34,22 +34,29 @@ survival_rate = df['Survived'].mean() * 100
 print(f"Taxa de sobrevivência geral: {survival_rate:.2f}%")
 
 # Análise de sexo e sobrevivência
+total_male = (df["Sex"] == "male").sum()
+total_female = (df["Sex"] == "female").sum()
 
-print(f"Total de homens: {len(df[df['Sex'] == 'male'])}")
 male_percentage = (df["Sex"] == "male").mean() * 100
-print(f"Porcentagem de homens: {male_percentage:.2f}%")
-print(f"Total de mulheres: {len(df[df['Sex'] == 'female'])}")
 female_percentage = (df["Sex"] == "female").mean() * 100
+
+male_survivors = ((df["Sex"] == "male") & (df["Survived"] == 1)).sum()
+female_survivors = ((df["Sex"] == "female") & (df["Survived"] == 1)).sum()
+
+male_survivors_percentage = ((df["Sex"] == "male") & (df["Survived"] == 1)).mean() / (df["Sex"] == "male").mean() * 100
+female_survivors_percentage = ((df["Sex"] == "female") & (df["Survived"] == 1)).mean() / (df["Sex"] == "female").mean() * 100
+
+print(f"Total de homens: {total_male}")
+print(f"Porcentagem de homens: {male_percentage:.2f}%")
+print(f"Total de mulheres: {total_female}")
 print(f"Porcentagem de mulheres: {female_percentage:.2f}%")
 
-print(f"Total de homens sobreviventes: {len(df[(df['Sex'] == 'male') & (df['Survived'] == 1)])}")
-male_survivors_percentage = (df[(df['Sex'] == 'male') & (df['Survived'] == 1)]).shape[0] / len(df[df['Sex'] == 'male']) * 100
+print(f"Total de homens sobreviventes: {male_survivors}")
 print(f"Porcentagem de homens sobreviventes: {male_survivors_percentage:.2f}%")
-print(f"Total de mulheres sobreviventes: {len(df[(df['Sex'] == 'female') & (df['Survived'] == 1)])}")
-female_survivors_percentage = (df[(df['Sex'] == 'female') & (df['Survived'] == 1)]).shape[0] / len(df[df['Sex'] == 'female']) * 100
+print(f"Total de mulheres sobreviventes: {female_survivors}")
 print(f"Porcentagem de mulheres sobreviventes: {female_survivors_percentage:.2f}%")
 
-# Gráficos de pizza: proporção de homens e mulheres
+# Gráficos de pizza: proporção de homens e mulheres total e de sobreviventes
 order = ['male', 'female']
 sex_counts = df['Sex'].value_counts().reindex(order)
 colors = ['#00F5D4', '#A44CD3']
