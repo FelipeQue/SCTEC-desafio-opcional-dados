@@ -64,12 +64,12 @@ colors = ['#00F5D4', '#A44CD3']
 custom_labels = ['Homens', 'Mulheres']
 plt.figure(figsize=(8, 6))
 plt.pie(sex_counts, labels=custom_labels, autopct='%1.1f%%', startangle=90, colors=colors)
-plt.title('Proporção de Homens e Mulheres')
+plt.title('Proporção de homens e mulheres no navio')
 plt.show()
 
 survived_sex_counts = df[df['Survived'] == 1]['Sex'].value_counts().reindex(order)
 plt.pie(survived_sex_counts, labels=custom_labels, autopct='%1.1f%%', startangle=90, colors=colors)
-plt.title('Proporção de Homens e Mulheres Sobreviventes')
+plt.title('Proporção de homens e mulheres sobreviventes')
 plt.show()
 
 

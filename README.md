@@ -43,9 +43,9 @@ Foi observada a correlação entre a classe no navio e a tarifa paga pela pessoa
 <img src="images/Figure_3.png" alt="Tarifas por Classe no Navio">
 </p>
 
-Foi calculado o coeficiente de correlação entre a classe no navio e a tarifa, que resultou em um valor de aproximadamente -0.55, indicando uma correlação negativa moderada. Isso significa que as pessoas passageiras de classes mais altas (primeira classe) pagaram tarifas significativamente maiores do que aquelas de classes mais baixas (segunda e terceira classes). — A correlação é negativa porque à medida que a classe no navio aumenta (1 → 2 → 3), a tarifa diminui. Como a tarifa é uma variável numérica contínua, foi utilizado o método Pearson para este cálculo de correlação.
+Foi calculado o coeficiente de correlação entre a classe no navio e a tarifa, que resultou em um valor de aproximadamente **-0.55**, indicando uma correlação negativa moderada. Isso significa que as pessoas passageiras de classes mais altas (primeira classe) pagaram tarifas significativamente maiores do que aquelas de classes mais baixas (segunda e terceira classes). — A correlação é negativa porque à medida que a classe no navio aumenta (1 → 2 → 3), a tarifa diminui. Como a tarifa é uma variável numérica contínua, foi utilizado o método Pearson para este cálculo de correlação.
 
-A motivação aqui foi de utilizar a classe no navio como um proxy para o status socioeconômico dos passageiros diante da suspeita que a classe social teve impacto na sobrevivência da pessoa passageira, verificada a seguir.
+A motivação aqui foi de utilizar **a classe no navio como um proxy para o status socioeconômico** dos passageiros diante da suspeita que a classe social teve impacto na sobrevivência da pessoa passageira, verificada a seguir.
 
 ### Classe social e sobrevivência
 
@@ -55,6 +55,10 @@ A análise da relação entre a classe social e a sobrevivência revelou que as 
 <img src="images/Figure_4.png" alt="Taxa de Sobrevivência por Classe no Navio">
 </p>
 
-Foi calculado o coeficiente de correlação entre a classe no navio e a sobrevivência, que resultou em um valor de aproximadamente -0.34, indicando uma correlação negativa moderada. Isso sugere que pessoas passageiras de classes mais altas (primeira classe) tinham uma probabilidade maior de sobreviver do que aquelas de classes mais baixas (segunda e terceira classes). (A correlação é negativa porque à medida que a classe no navio aumenta (1 → 2 → 3, ficando mais pobre), a taxa de sobrevivência diminui.)
+Foi calculado o coeficiente de correlação entre a classe no navio e a sobrevivência, que resultou em um valor de aproximadamente **-0.34**, indicando uma correlação negativa moderada. Isso sugere que pessoas passageiras de classes mais altas (primeira classe) tinham uma probabilidade maior de sobreviver do que aquelas de classes mais baixas (segunda e terceira classes). (A correlação é negativa porque à medida que a classe no navio aumenta (1 → 2 → 3, ficando mais pobre), a taxa de sobrevivência diminui.)
 
 Foi utilizado o método Spearman para este cálculo de correlação por ser mais adequado para avaliar a relação entre variáveis ordinais, como a classe no navio. Embora a classe no navio possa ser expressa numericamente (1, 2 e 3), aproveitamos a ausência de uma variável numérica contínua para enfatizar sua dimensão ordinal, uma vez que as classes estão ordenadas (primeira classe é melhor do que segunda classe, que é melhor do que terceira classe).
+
+### Considerações finais
+
+A análise dos dados do Titanic revela que o gênero e a classe social tiveram um impacto significativo na sobrevivência das pessoas passageiras. As mulheres tiveram uma taxa de sobrevivência muito maior do que os homens, assim como as pessoas passageiras da primeira classe tiveram uma taxa de sobrevivência significativamente maior do que as da segunda e terceira classes, sugerindo que as pessoas de classes sociais mais altas tiveram acesso a melhores recursos e oportunidades de sobrevivência durante o desastre.
