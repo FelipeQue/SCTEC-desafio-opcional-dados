@@ -62,3 +62,5 @@ Foi utilizado o método Spearman para este cálculo de correlação por ser mais
 ### Considerações finais
 
 A análise dos dados do Titanic revela que o gênero e a classe social tiveram um impacto significativo na sobrevivência das pessoas passageiras. As mulheres tiveram uma taxa de sobrevivência muito maior do que os homens, assim como as pessoas passageiras da primeira classe tiveram uma taxa de sobrevivência significativamente maior do que as da segunda e terceira classes, sugerindo que as pessoas de classes sociais mais altas tiveram acesso a melhores recursos e oportunidades de sobrevivência durante o desastre.
+
+[Link no GitHub](https://github.com/FelipeQue/SCTEC-desafio-opcional-dados)
