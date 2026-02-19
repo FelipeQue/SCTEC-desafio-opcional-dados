@@ -2,13 +2,14 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Carregamento dos dados
 df = pd.read_csv('titanic_dataset.csv')
 
 # Reconhecimento dos dados
-#print(df.info())
-#print(df.describe())
+print(df.info())
+print(df.describe())
 
 # Limpeza dos dados: verificação de linhas duplicadas
 duplicate_rows = df[df.duplicated()]
@@ -56,7 +57,7 @@ print(f"Porcentagem de homens sobreviventes: {male_survivors_percentage:.2f}%")
 print(f"Total de mulheres sobreviventes: {female_survivors}")
 print(f"Porcentagem de mulheres sobreviventes: {female_survivors_percentage:.2f}%")
 
-# Gráficos de pizza: proporção de homens e mulheres total e de sobreviventes
+# Gráficos de pizza: proporção de homens e mulheres entre pessoas passageiras e entre sobreviventes
 order = ['male', 'female']
 sex_counts = df['Sex'].value_counts().reindex(order)
 colors = ['#00F5D4', '#A44CD3']
@@ -72,3 +73,34 @@ plt.title('Proporção de Homens e Mulheres Sobreviventes')
 plt.show()
 
 
+# Correlação entre classe no navio e tarifa
+class_fare_analysis = df.groupby('Pclass')['Fare'].agg(['mean', 'median', 'min', 'max', 'count'])
+print("Análise da tarifa por classe no navio:")
+print(class_fare_analysis)
+
+# Gráfico de violino para visualizar a distribuição das tarifas por classe no navio
+social_class_grouped = df.groupby('Pclass')['Fare']
+social_class_data = [social_class_grouped.get_group(pclass).values for pclass in sorted(social_class_grouped.groups.keys())]
+plt.figure(figsize=(8, 6))
+plt.title('Relação entre Classe no Navio e Tarifa')
+plt.xlabel('Classe no Navio')
+plt.ylabel('Tarifa')
+plt.violinplot(social_class_data, positions=[1, 2, 3])
+plt.xticks([1, 2, 3])
+plt.grid()
+plt.show()
+
+
+# Análise de classe social e sobrevivência
+class_survival_rate = df.groupby('Pclass')['Survived'].mean() * 100
+print("Taxa de sobrevivência por classe:")
+print(class_survival_rate)
+
+# Gráfico de barras da taxa de sobrevivência por classe
+colors = ['#FFD700', '#A9A9A9', '#2F4F4F']  # Ouro (rico), Cinza (médio), Cinza escuro (pobre)
+sns.barplot(x=class_survival_rate.index, y=class_survival_rate.values, palette=colors)
+plt.title("Taxa de sobrevivência por classe social")
+plt.xlabel("Classe no Navio")
+plt.ylabel("Taxa de sobrevivência (%)")
+plt.xticks([0, 1, 2], ['1ª Classe', '2ª Classe', '3ª Classe'])
+plt.show()
