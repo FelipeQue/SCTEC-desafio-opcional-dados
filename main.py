@@ -78,6 +78,10 @@ class_fare_analysis = df.groupby('Pclass')['Fare'].agg(['mean', 'median', 'min',
 print("Análise da tarifa por classe no navio:")
 print(class_fare_analysis)
 
+class_fare_corr = df[['Pclass','Fare']].corr(method='pearson')
+print("Correlação pelo método Pearson entre classe no navio e tarifa:", class_fare_corr)
+
+
 # Gráfico de violino para visualizar a distribuição das tarifas por classe no navio
 social_class_grouped = df.groupby('Pclass')['Fare']
 social_class_data = [social_class_grouped.get_group(pclass).values for pclass in sorted(social_class_grouped.groups.keys())]
@@ -104,3 +108,6 @@ plt.xlabel("Classe no Navio")
 plt.ylabel("Taxa de sobrevivência (%)")
 plt.xticks([0, 1, 2], ['1ª Classe', '2ª Classe', '3ª Classe'])
 plt.show()
+
+class_survival_corr = df[['Pclass','Survived']].corr(method='spearman')
+print("Correlação pelo método Spearman entre classe no navio e sobrevivência:", class_survival_corr)
