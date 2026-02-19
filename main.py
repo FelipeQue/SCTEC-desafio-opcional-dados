@@ -102,7 +102,7 @@ print(class_survival_rate)
 
 # Gráfico de barras da taxa de sobrevivência por classe
 colors = ['#FFD700', '#A9A9A9', '#2F4F4F']  # Ouro (rico), Cinza (médio), Cinza escuro (pobre)
-sns.barplot(x=class_survival_rate.index, y=class_survival_rate.values, palette=colors)
+sns.barplot(x=class_survival_rate.index, y=class_survival_rate.values, hue=class_survival_rate.index, palette=colors, legend=False)
 plt.title("Taxa de sobrevivência por classe social")
 plt.xlabel("Classe no Navio")
 plt.ylabel("Taxa de sobrevivência (%)")
